@@ -18,9 +18,9 @@
 //      {$PROCESSOR PIC16F84A}
 //      {$FREQUENCY 8Mhz}
 //
-//   2. Seleecionar el modo de conexión del bus da datos del LCD (8 o 4 bits)
-//      {$DEFINE LCD_BUS_DATA_4_BITS} //Modo bus de datos 4 BITS.
-//      {$DEFINE LCD_BUS_DATA_8_BITS} // Modo bus de datos 8 BITS.
+//   2. Seleccionar el modo de conexión del bus da datos del LCD (8 o 4 bits)
+//      {$DEFINE LCD_BUS_DATA_BITS = 4} // Modo bus de datos 4 BITS.
+//      {$DEFINE LCD_BUS_DATA_BITS = 8} // Modo bus de datos 8 BITS.
 //
 //   3. Configurar los pines de conexión entre entre el microcontrolador y el
 //      display LCD.
@@ -28,17 +28,14 @@
 //      > Para el modo bus 4 BITS no es necesario que los pines sean del mismo
 //        puerto o que guarde ningún orden, se tratan de manera individual. Por
 //        ejemplo, esta definición sería válida:
-//        {$DEFINE LCD_BUS_DATA_4_BITS}       // Modo bus de datos 4 BITS.
 //        {$DEFINE LCD_PIN_DATA_4 = PORTA.1}  // BIT D0 BUS de datos 4 bits.
 //        {$DEFINE LCD_PIN_DATA_5 = PORTC.5}  // BIT D1 BUS de datos 4 bits.
 //        {$DEFINE LCD_PIN_DATA_6 = PORTB.1}  // BIT D2 BUS de datos 4 bits.
 //        {$DEFINE LCD_PIN_DATA_7 = PORTB.2}  // BIT D3 BUS de datos 4 bits.
 //
-//      > Para el modo bus 8 BITS se debe definir un puerta completo como bus
+//      > Para el modo bus 8 BITS se debe definir un puerto completo como bus
 //        de datos. Por ejemplo:
-//        {$DEFINE LCD_BUS_DATA_8_BITS}         // Modo bus de datos 8 BITS.
 //        {$DEFINE LCD_PORT_DATA_8BIT = PORTB}  // Puerto de bus de datos de 8 BITS. 
-//      
 //      
 //   4. Configurar los pines de control RS y ENABLE.
 //      {$DEFINE LCD_PIN_RS     = PORTA.0}  // SELECT REGISTER.
@@ -85,13 +82,6 @@ unit LCDLib;
 
 interface
 
-//{$IFNDEF PIC_MODEL}
-//  {$MSGBOX 'Se debe indicar el modelo de microcontrolador al inicio del programa. (Por ejemplo: $PROCESSOR PIC16F84A)}
-  // para que no de errores mientras se prueba la sintaxis de la libreria.
-//  {$PROCESSOR PIC16F877A}
-//  {$DEFINE LCD_BUS_DATA_8_BITS}
-//{$ENDIF}
-
 uses {$PIC_MODEL}, LCDLib_Commands;
 
 const
@@ -99,18 +89,13 @@ const
   LCD_CharMode = 1;
  
 var
-{$IFDEF LCD_BUS_DATA_4_BITS}
-//  LCD_DATA_4   : bit absolute PORTB.4;//{$PIN_DATA_4};  // BIT D0 BUS de datos 4 bits.
-//  LCD_DATA_5   : bit absolute PORTB.5;//{$PIN_DATA_5};  // BIT D1 BUS de datos 4 bits.
-//  LCD_DATA_6   : bit absolute PORTB.6;//{$PIN_DATA_6};  // BIT D2 BUS de datos 4 bits.
-//  LCD_DATA_7   : bit absolute PORTB.7;//{$PIN_DATA_7};  // BIT D3 BUS de datos 4 bits.
+{$IF LCD_BUS_DATA_BITS = 4}
   LCD_DATA_4   : bit absolute {$LCD_PIN_DATA_4};  // BIT D0 BUS de datos 4 bits.
   LCD_DATA_5   : bit absolute {$LCD_PIN_DATA_5};  // BIT D1 BUS de datos 4 bits.
   LCD_DATA_6   : bit absolute {$LCD_PIN_DATA_6};  // BIT D2 BUS de datos 4 bits.
   LCD_DATA_7   : bit absolute {$LCD_PIN_DATA_7};  // BIT D3 BUS de datos 4 bits.
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
-//  LCD_DATA     : byte absolute PORTB; //{$PORT_DATA_8BIT_MODE} // Puerto de datos 8 bits.
+{$IF LCD_BUS_DATA_BITS = 8}
   LCD_DATA     : byte absolute {$LCD_PORT_DATA_8BIT}; // Puerto de datos 8 bits.
 {$ENDIF}
   LCD_RS       : bit absolute {$LCD_PIN_RS};      // SELECT REGISTER.
@@ -119,7 +104,7 @@ var
   LCD_COLUMNAS : byte;                  // Caracteres por linea del LCD.
   LCD_Counter  : byte;
 
-{$IFDEF LCD_BUS_DATA_4_BITS}
+{$IF LCD_BUS_DATA_BITS = 4}
 //-----------------------------------------------------------------------------
 // Envia los 4 bits superiores al puerto de datos de 4 bits en Display.
 procedure LCD_Send_4bits(dat: byte);
@@ -128,7 +113,7 @@ procedure LCD_Send_4bits(dat: byte);
 procedure LCD_Send(dat: byte);
 //-----------------------------------------------------------------------------
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
+{$IF LCD_BUS_DATA_BITS = 8}
 //-----------------------------------------------------------------------------
 // Envia un datos en Display si el ancho del bus es de 8 bits.
 procedure LCD_Send(register dat: byte);
@@ -206,7 +191,7 @@ procedure LCD_Init(columnas, filas : byte);
 
 implementation
 
-{$IFDEF LCD_BUS_DATA_4_BITS}
+{$IF LCD_BUS_DATA_BITS = 4}
 //-----------------------------------------------------------------------------
 procedure LCD_Send_4bits(dat: byte);
 begin
@@ -229,7 +214,7 @@ begin
                    // al Display LCD.
 end;
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
+{$IF LCD_BUS_DATA_BITS = 8}
 //-----------------------------------------------------------------------------
 procedure LCD_Send(register dat: byte);
 begin
@@ -364,13 +349,13 @@ end;
 //-----------------------------------------------------------------------------
 procedure LCD_Init(columnas, filas : byte);
 begin
-{$IFDEF LCD_BUS_DATA_4_BITS}
+{$IF LCD_BUS_DATA_BITS = 4}
   SetAsOutput(LCD_DATA_4);
   SetAsOutput(LCD_DATA_5);
   SetAsOutput(LCD_DATA_6);
   SetAsOutput(LCD_DATA_7);
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
+{$IF LCD_BUS_DATA_BITS = 8}
   SetAsOutput(LCD_DATA);
 {$ENDIF}
   SetAsOutPut(LCD_RS);
@@ -392,7 +377,7 @@ begin
   // QUE: La funcion LCD_Command ya INCLUYE 2 ms de espera. (Ver LCD_Send)
   // =======================================================================
 
-{$IFDEF LCD_BUS_DATA_4_BITS}
+{$IF LCD_BUS_DATA_BITS = 4}
   // INICIACION DE DISPLAY MODO 4 BITS DE DATOS
   // Los tiempos de espera son los indicados en todos los
   // datasheets de los displays compatibles con el estandar Hitachi HD44780.
@@ -403,7 +388,7 @@ begin
   LCD_Send_4bits(%00110000);
   LCD_Send_4bits(%00100000);
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
+{$IF LCD_BUS_DATA_BITS = 8}
   // INICIACION DE DISPLAY MODO 8 BITS DE DATOS
   // Los tiempos de espera son los indicados en todos los
   // datasheets de los displays compatibles con el estandar Hitachi HD44780.
@@ -416,10 +401,10 @@ begin
  
   // Parametros mas comunes de configuracion y uso de displays LCD.
   // Se pueden modificar segun necesidad.
-{$IFDEF LCD_BUS_DATA_4_BITS}
+{$IF LCD_BUS_DATA_BITS = 4}
   LCD_Command(LCD_FUNCTION_SET + LCD_4BIT_INTERFACE + LCD_2LINES + LCD_F_FONT_5_8);
 {$ENDIF}
-{$IFDEF LCD_BUS_DATA_8_BITS}
+{$IF LCD_BUS_DATA_BITS = 8}
   LCD_Command(LCD_FUNCTION_SET + LCD_8BIT_INTERFACE + LCD_2LINES + LCD_F_FONT_5_8);
 {$ENDIF}
   LCD_Command(LCD_DISPLAY_ON_OFF_AND_CURSOR + LCD_DISPLAY_OFF);
