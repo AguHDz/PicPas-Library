@@ -58,7 +58,7 @@
 //     +5v a Pin 2 del LCD (VDD)
 //     GND a Pin 1 del LCD (VSS)
 //   
-///  ---- Control ----
+//   ---- Control ----
 //     RS (LCD pin 4) a PIC: LCD_RS
 //     RW (LCD pin 5) a tierra (conectado a pin 1 del LCD)
 //     E  (LCD pin 6) a PIC: LCD_EN
