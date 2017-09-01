@@ -8,7 +8,6 @@
 *  Imprime de manera repatitiva la demostracion en cualquier LCD
 *  compatible con el estandar HITACHI HD44780.
 }
-
 // ****************************************************************
 { --- DEFINICION DE MICROCONTROLADOR --- }
 {$PROCESSOR PIC16F84A}
