@@ -13,20 +13,20 @@
 { --- DEFINICION DE MICROCONTROLADOR --- }
 {$PROCESSOR PIC16F84A}
 {$FREQUENCY 8Mhz}
-
 // ****************************************************************
-{ --- DEFICION DE PINES DE LIBRERIA LCD --- }
+{ --- PARAMETROS DE LIBRERIA LCD --- }
+{$DEFINE LCD_BUS_DATA_BITS = 4}  // Bits de datos usado por display (8 o 4)
 // < MODO BUS DE DATOS 4 BITS >
-{$DEFINE LCD_BUS_DATA_4_BITS}       // Modo bus de datos 4 BITS.
-{$DEFINE LCD_PIN_DATA_4 = PORTB.4}  // BIT D0 BUS de datos 4 bits.
-{$DEFINE LCD_PIN_DATA_5 = PORTB.5}  // BIT D1 BUS de datos 4 bits.
-{$DEFINE LCD_PIN_DATA_6 = PORTB.6}  // BIT D2 BUS de datos 4 bits.
-{$DEFINE LCD_PIN_DATA_7 = PORTB.7}  // BIT D3 BUS de datos 4 bits. 
-   
+{$IF LCD_BUS_DATA_BITS = 4}         // Si Modo bus de datos 4 BITS.
+  {$DEFINE LCD_PIN_DATA_4 = PORTB.4}  // BIT D0 BUS de datos 4 bits.
+  {$DEFINE LCD_PIN_DATA_5 = PORTB.5}  // BIT D1 BUS de datos 4 bits.
+  {$DEFINE LCD_PIN_DATA_6 = PORTB.6}  // BIT D2 BUS de datos 4 bits.
+  {$DEFINE LCD_PIN_DATA_7 = PORTB.7}  // BIT D3 BUS de datos 4 bits. 
+{$ENDIF}
 // < MODO BUS DE DATOS 8 BITS >
-//{$DEFINE LCD_BUS_DATA_8_BITS}         // Modo bus de datos 8 BITS.
-//{$DEFINE LCD_PORT_DATA_8BIT = PORTB}  // Puerto de bus de datos de 8 BITS.
-
+{$IF LCD_BUS_DATA_BITS = 8}         // Si Modo bus de datos 8 BITS.
+  {$DEFINE LCD_PORT_DATA_8BIT = PORTB}  // Puerto de bus de datos de 8 BITS.
+{$ENDIF}
 // < COMUN PARA BUS DE 4 Y 8 BITS > 
 {$DEFINE LCD_PIN_RS     = PORTA.0}  // SELECT REGISTER.
 {$DEFINE LCD_PIN_EN     = PORTA.1}  // ENABLE STARTS DATA READ/WRITE.
