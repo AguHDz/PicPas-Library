@@ -1,7 +1,6 @@
 # PicPas-Library
- Librerías para el Compilador PicPas (Pascal para microcontroladores PIC16)
 
-Repositorio de Código Fuente para compilar con PicPas.
+Repositorio de librerías para compilar con PicPas.
 
 PicPas es un compilador experimental de lenguaje Pascal, de código abierto y gratuito, escrito en Lazarus, portable y multiplataforma, que genera código ejecutable para microcontroladores PIC16 de Microchip.
 
