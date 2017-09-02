@@ -100,8 +100,8 @@ var
 {$ENDIF}
   LCD_RS       : bit absolute {$LCD_PIN_RS};      // SELECT REGISTER.
   LCD_EN       : bit absolute {$LCD_PIN_EN};      // ENABLE STARTS DATA READ/WRITE.
-  LCD_FILAS    : byte;                  // Lineas del LCD.
-  LCD_COLUMNAS : byte;                  // Caracteres por linea del LCD.
+  LCD_FILAS    : byte;                            // Lineas del LCD.
+  LCD_COLUMNAS : byte;                            // Caracteres por linea del LCD.
   LCD_Counter  : byte;
 
 {$IF LCD_BUS_DATA_BITS = 4}
