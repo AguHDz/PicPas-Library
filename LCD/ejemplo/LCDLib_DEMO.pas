@@ -14,7 +14,7 @@
 {$FREQUENCY 8Mhz}
 // ****************************************************************
 { --- PARAMETROS DE LIBRERIA LCD --- }
-{$DEFINE LCD_BUS_DATA_BITS = 4}  // Bits de datos usado por display (8 o 4)
+{$DEFINE LCD_BUS_DATA_BITS = 8}  // Bits de datos usado por display (8 o 4)
 // < MODO BUS DE DATOS 4 BITS >
 {$IF LCD_BUS_DATA_BITS = 4}         // Si Modo bus de datos 4 BITS.
   {$DEFINE LCD_PIN_DATA_4 = PORTB.4}  // BIT D0 BUS de datos 4 bits.
