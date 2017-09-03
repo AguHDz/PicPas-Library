@@ -6,3 +6,7 @@
 //  
 //  LIBRERIA DE FUNCIONES DE CONVERSION DE NUMEROS DECIMALES A BCD
 //
+//  Una de sus principales aplicaciones sería mostrar resultados numéricos
+//  en display LED de 7 segmentos como se muestra en el ejemplo de uso de
+//  la librería.
+//
