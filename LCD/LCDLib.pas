@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------------
 //
 //  (C) AguHDz 06-JUL-2017
-//  Ultima Actualizacion: 01-SEP-2017
+//  Ultima Actualizacion: 03-SEP-2017
 //
 //  Compilador PicPas v.0.7.6 (https://github.com/t-edson/PicPas)
 //
@@ -82,12 +82,17 @@ unit LCDLib;
 
 interface
 
+{$IFNDEF PIC_MODEL}
+  {$SET PIC_MODEL = 'PIC16F84A'}
+{$ENDIF}
+
 uses {$PIC_MODEL}, LCDLib_Commands;
 
 const
   LCD_CmdMode  = 0;    // valores de pin RS
   LCD_CharMode = 1;
- 
+
+//{$MSGBOX 'MICROCONTROLADOR: ' + PIC_MODEL}
 var
 {$IF LCD_BUS_DATA_BITS = 4}
   LCD_DATA_4   : bit absolute {$LCD_PIN_DATA_4};  // BIT D0 BUS de datos 4 bits.
