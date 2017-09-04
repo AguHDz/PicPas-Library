@@ -9,7 +9,7 @@
   <VerStatusbar Val="True"/>
   <VerBarHerram Val="True"/>
   <ViewSynTree Val="True"/>
-  <SynTreeWidth Val="164"/>
+  <SynTreeWidth Val="255"/>
   <viewMode Val="2"/>
   <MessPanBack Val="-2147483643"/>
   <MessPanText Val="536870912"/>
@@ -42,9 +42,9 @@
     <cTxtPan Val="0"/>
     <recient Val="D:\GitHub\PicPas-Library\LCD\ejemplo\LCDLib_DEMO.pas
 D:\PicPas-0.7.6\units\LCDLib.pas
-D:\GitHub\PicPas-Librerias_y_Programas\Com_RS232_UART\UARTSoft_Comunicacion.pas
 D:\GitHub\PicPas-Library\LCD\LCDLib.pas
-D:\GitHub\PicPas-Librerias_y_Programas\Comparacion PicPas-Otros Compiladores\program_PicPas.pas
+D:\GitHub\PicPas-Librerias_y_Programas\Math_Code\Math_Lib_DEMO.pas
+D:\GitHub\PicPas-Library\DECtoBCD\ejemplo\DecToBCD_DEMO_4_Display7Seg.pas
 "/>
   </Edit>
   <IncHeadMpu Val="False"/>
@@ -83,6 +83,6 @@ String	8756694	0	F	F	F
 Directive	4227327	0	V	F	F				
 Asm	6340704	0	F	F	F				
 Types	53970	0	F	F	F				
-Symbol	16777128	0	F	F	F				
+Symbol	16744448	0	F	F	F				
 
 <-->
