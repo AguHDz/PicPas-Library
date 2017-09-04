@@ -1,4 +1,4 @@
-Ejemplo de uso de librería DECtoBCD
+Ejemplo de uso de librería LCDLib
 ===================================
 Bus de datos en modo 4 bits:
 
