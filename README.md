@@ -11,7 +11,7 @@ Más información y descarga de última versión de PicPas en: https://github.co
 # Indice
 
 Librerías de Periféricos:
-- ![Displays LCD compatibles con el estandar HITACHI HD44780.](https://github.com/AguHDz/PicPas-Library/tree/master/LCD)
+- ![Displays LCD compatibles con el estándar HITACHI HD44780.](https://github.com/AguHDz/PicPas-Library/tree/master/LCD)
 - ![Conversión de números decimales a formato BCD.](https://github.com/AguHDz/PicPas-Library/tree/master/DECtoBCD)
 
 Librerías de registros ![SFR de PICs](https://github.com/AguHDz/PicPas-Library/blob/master/SFR_MICROCONTROLADORES):
