@@ -2,6 +2,8 @@
 
 Repositorio de librerías para ![PicPas](https://github.com/t-edson/PicPas), compilador experimental de lenguaje Pascal, de código abierto y gratuito, escrito en Lazarus, portable y multiplataforma, que genera código ejecutable para microcontroladores PIC16 de Microchip.
 
+![IDE Personalizado de PicPas](https://raw.githubusercontent.com/AguHDz/PicPas-Librerias_y_Programas/master/IDE_PicPas_Personalizado.jpg "IDE Personalizado de PicPas")
+
 # Indice
 
 - Librerías de Periféricos:
@@ -22,5 +24,3 @@ Repositorio de librerías para ![PicPas](https://github.com/t-edson/PicPas), com
 - Formatos visuales del IDE de PicPas (![Themes](https://github.com/AguHDz/PicPas-Library/tree/master/THEMES))
 
 - Más información y descarga de última versión de PicPas en: https://github.com/t-edson/PicPas
-
-![IDE Personalizado de PicPas](https://raw.githubusercontent.com/AguHDz/PicPas-Librerias_y_Programas/master/IDE_PicPas_Personalizado.jpg "IDE Personalizado de PicPas")
