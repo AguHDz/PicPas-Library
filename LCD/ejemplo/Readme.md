@@ -1,4 +1,4 @@
-Ejemplo de uso de librería LCDLib
+Ejemplos de uso de librería LCDLib
 ===================================
 Bus de datos en modo 4 bits:
 
