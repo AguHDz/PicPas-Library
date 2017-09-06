@@ -1,7 +1,7 @@
 // ------------------------------------------------------------------------
 //
 //  (C) AguHDz 02-SEP-2017
-//  Ultima Actualizacion: 03-SEP-2017
+//  Ultima Actualizacion: 06-SEP-2017
 //
 //  Compilador PicPas v.0.7.6 (https://github.com/t-edson/PicPas)
 //
@@ -11,8 +11,9 @@
 //
 // ------------------------------------------------------------------------
 
-{$FREQUENCY 8 MHZ }
 {$PROCESSOR PIC16F877A}
+{$FREQUENCY 8 MHZ}
+{$MODE PICPAS}
 
 program Conversion_DECtoBCD;
 
