@@ -2,19 +2,19 @@
 
 // =======================================
 // CP : FLASH Program Memory Code Protection bit.
-{$define _CP_ON       =     $000F}
-{$define _CP_OFF      =     $3FFF}
+{$DEFINE _CP_ON         =     $000F}   // All program memory is code protected
+{$DEFINE _CP_OFF        =     $3FFF}   // Code protection disabled
 // /PWRTEN : Power-up Timer Enable bit.
-{$define _PWRT_ON     =     $3FF7}
-{$define _PWRT_OFF    =     $3FFF}
+{$DEFINE _PWRTEN_ON     =     $3FF7}   // Power-up Timer is enabled
+{$DEFINE _PWRTEN_OFF    =     $3FFF}   // Power-up Timer is disabled
 // WDTEN : Watchdog Timer Eneble bit.
-{$define _WDT_ON      =     $3FFF}
-{$define _WDT_OFF     =     $3FFB}
+{$DEFINE _WDT_OFF       =     $3FFB}   // WDT disabled
+{$DEFINE _WDT_ON        =     $3FFF}   // WDT enabled
 // FOSC1:FOSC2 : Oscilator Seleccion bits.
-{$define _LP_OSC      =     $3FFC}
-{$define _XT_OSC      =     $3FFD}
-{$define _HS_OSC      =     $3FFE}
-{$define _RC_OSC      =     $3FFF}
+{$DEFINE _LP_OSC        =     $3FFC}   // LP oscillator
+{$DEFINE _XT_OSC        =     $3FFD}   // XT oscillator
+{$DEFINE _HS_OSC        =     $3FFE}   // HS oscillator
+{$DEFINE _RC_OSC        =     $3FFF}   // RC oscillator
 // =======================================
 // The erased (unprogrammed) value of the configuration word is 3FFFFh.
 // Configuration Word Address : 2007h.
