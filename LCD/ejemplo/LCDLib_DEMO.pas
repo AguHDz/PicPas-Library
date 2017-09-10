@@ -1,6 +1,6 @@
 {
 *  (C) AguHDz 06-JUL-2017
-*  Ultima Actualizacion: 01-SEP-2017
+*  Ultima Actualizacion: 10-SEP-2017
 *  Prueba para compilador PicPas v.0.7.6
 * 
 *  Demo de libreria para Manejo de displays LCD
@@ -9,11 +9,39 @@
 *  compatible con el estandar HITACHI HD44780.
 }
 // ****************************************************************
+
 { --- DEFINICION DE MICROCONTROLADOR --- }
 {$PROCESSOR PIC16F84A}
 {$FREQUENCY 8Mhz}
 // ****************************************************************
-{ --- PARAMETROS DE LIBRERIA LCD --- }
+{ --- CONFIGURACION DE MICROCONTROLADOR (FUSES) --- }
+{$IF PIC_MODEL = 'PIC16F84A'}
+  // CONFIGURATION WORD PIC16F84A
+  // =======================================
+  // CP : FLASH Program Memory Code Protection bit.
+  {$DEFINE _CP_ON         =     $000F}   // All program memory is code protected
+  {$DEFINE _CP_OFF        =     $3FFF}   // Code protection disabled
+  // /PWRTEN : Power-up Timer Enable bit.
+  {$DEFINE _PWRTEN_ON     =     $3FF7}   // Power-up Timer is enabled
+  {$DEFINE _PWRTEN_OFF    =     $3FFF}   // Power-up Timer is disabled
+  // WDTEN : Watchdog Timer Eneble bit.
+  {$DEFINE _WDT_OFF       =     $3FFB}   // WDT disabled
+  {$DEFINE _WDT_ON        =     $3FFF}   // WDT enabled
+  // FOSC1:FOSC2 : Oscilator Seleccion bits.
+  {$DEFINE _LP_OSC        =     $3FFC}   // LP oscillator
+  {$DEFINE _XT_OSC        =     $3FFD}   // XT oscillator
+  {$DEFINE _HS_OSC        =     $3FFE}   // HS oscillator
+  {$DEFINE _RC_OSC        =     $3FFF}   // RC oscillator
+  // =======================================
+  // The erased (unprogrammed) value of the configuration word is 3FFFFh.
+  // Configuration Word Address : 2007h.
+  {$CONFIG _CP_OFF, _PWRTEN_ON, _WDT_OFF, _HS_OSC}
+  // =======================================
+{$ELSE}
+  {$MSGBOX 'FUSES DE ' + PIC_MODEL + ' NO CONFIGURADOS.'}
+{$ENDIF}
+// ****************************************************************
+{ --- PARAMETROS DE CONFIGURACION DE LIBRERIA LCD --- }
 {$DEFINE LCD_BUS_DATA_BITS = 8}  // Bits de datos usado por display (8 o 4)
 // < MODO BUS DE DATOS 4 BITS >
 {$IF LCD_BUS_DATA_BITS = 4}         // Si Modo bus de datos 4 BITS.
