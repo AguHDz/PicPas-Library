@@ -48,10 +48,10 @@ unit UARTSoftLib;
 
 interface
 
-//{$SET DEBUG_LIBRARY_UARDSOFT = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
-{$SET DEBUG_LIBRARY_UARDSOFT = 'OFF'}    // Para usar la librería, SIEMPRE en OFF.
+//{$SET DEBUG_LIBRARY_UARTSOFT = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
+{$SET DEBUG_LIBRARY_UARTSOFT = 'OFF'}    // Para usar la librería, SIEMPRE en OFF.
 
-{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
+{$IF DEBUG_LIBRARY_UARTSOFT = 'ON'}
   {$PROCESSOR PIC16F84A}
   {$FREQUENCY 12MHz}
   {$SET BAUDIOS = 9600}              // VELOCIDAD DE COMUNICACION SERIE
@@ -88,7 +88,7 @@ interface
   {$ERROR 'Debe seleccionar un modelo de Microcontralador al inicio de su programa mediante la directiva $PROCESSOR.}  
 {$ENDIF}
 
-{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
+{$IF DEBUG_LIBRARY_UARTSOFT = 'ON'}
   {$MSGBOX "TIME_MEDIOBITDELAY = " + TIME_MEDIOBITDELAY + "\nCICLOS_DELAY = " + CICLOS_DELAY + "\nCICLOS_DELAY_LOOP = " + CICLOS_DELAY_LOOP}
   uses {$PIC_MODEL};  // Parece que a partir de la versión 0.7.7 ya no es necesario volver a incluir la librería, e incluso produce un error. ¿?
 {$ENDIF}
@@ -125,12 +125,12 @@ begin
 {$SET CONTADOR_CICLOS_DELAY = 8 + (CICLOS_DELAY_LOOP-1)*3}
   ASM   
     movlw      CICLOS_DELAY_1
-    movwf      d1
+    movwf	     d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
   END
-{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
+{$IF DEBUG_LIBRARY_UARTSOFT = 'ON'}
   {$MSGBOX "CONTADOR_CICLOS_DELAY = " + CONTADOR_CICLOS_DELAY}
 {$ENDIF}
 // Si es necesario, ajusta añadiendo 2 ciclos.
@@ -157,7 +157,7 @@ begin
   {$SET CONTADOR_CICLOS_DELAY = CONTADOR_CICLOS_DELAY + 1}
   //{$MSGBOX "CONTADOR_CICLOS_DELAY + 1 = " + CONTADOR_CICLOS_DELAY}
 {$ENDIF}
-{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
+{$IF DEBUG_LIBRARY_UARTSOFT = 'ON'}
   {$MSGBOX "CICLOS_DELAY = " + CICLOS_DELAY + "\nCONTADOR_CICLOS_DELAY = " + CONTADOR_CICLOS_DELAY} 
 {$ENDIF}
 end;
@@ -181,7 +181,7 @@ begin
     call       MedioBitDelay ; 4 ciclos +
     goto       $+1           ; 2 ciclos = 6 ciclos.
     movlw      CICLOS_DELAY_1
-    movwf      d1
+    movwf	     d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
