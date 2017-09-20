@@ -9,6 +9,7 @@ Repositorio de librerías para ![PicPas](https://github.com/t-edson/PicPas). Un 
 - Librerías de Periféricos:
   - ![Displays LCD compatibles con el estándar HITACHI HD44780.](https://github.com/AguHDz/PicPas-Library/tree/master/LCD)
   - ![Conversión de números decimales a formato BCD.](https://github.com/AguHDz/PicPas-Library/tree/master/DECtoBCD)
+  - ![Comunicación RS-232 creando UART mediante software.](https://github.com/AguHDz/PicPas-Library/tree/master/UARTSoft)
 
 - Librerías de registros ![SFR de PICs](https://github.com/AguHDz/PicPas-Library/blob/master/SFR_MICROCONTROLADORES):
   - ![PIC16C63](https://github.com/AguHDz/PicPas-Library/blob/master/SFR_MICROCONTROLADORES/PIC16C63.pas)
