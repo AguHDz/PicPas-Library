@@ -2,34 +2,37 @@
 //  (C) AguHDz 01-AGO-2017
 //  Ultima Actualizacion: 20-SEP-2017
 //  
+//  Librería : UARTSoft.pas
+//  
 //  Compilador PicPas v.0.7.7 (https://github.com/t-edson/PicPas)
 //  
 //  LIBRERIA DE COMUNICACION SERIE RS232 (UART) MEDIANTE SOFTWARE
 //  =============================================================
-//  Envío y recepción de caracteres ASCII mediante puerto serie RS232 usando la
-//  librería UARTSoft que crea una unidad UART (Universal Asynchronous
+//  Envío y recepción de caracteres ASCII a través del puerto serie RS232.
+//  
+//  Esta librería (UARTSoft) crea una unidad UART (Universal Asynchronous
 //  Receiver-Transmitter) mediante software.
 //  
 //  Cualquier pin de los puertos I/O del microcontrolador es valido para
-//  configurarse como linea de Transmision (TX) o Recepcion (RX) de
+//  configurarse como línea de Transmisión (TX) o Recepción (RX) de
 //  datos.
 //  
 //  Configurar los pines en el programa mediante las directivas:
 //  
-//  {$SET UART_PIN_RX = 'PORTB_RB7'}   // PUERTO DE RECEPCION RDX 
-//  {$SET UART_PIN_TX = 'PORTB_RB6'}   // PUERTO DE TRANSMISION TDX
+//  {$SET UART_PIN_RX = 'PORTB.7'}   // PUERTO DE RECEPCION RDX 
+//  {$SET UART_PIN_TX = 'PORTB.6'}   // PUERTO DE TRANSMISION TDX
 //  
 //  Se utiliza el protocolo RS-232 en su configuracion más comúnn: 8 bits de
 //  datos, 1 bit de Stop, sin paridad ni control de flujo (solo 2 hilos de
-//  comunicacion). La velocidad en bits por segundo (bps o baudios) se
+//  comunicación). La velocidad, en bits por segundo (bps o baudios), se
 //  configura en el programa mediante la directiva:
 //  
-//  {$SET BAUDIOS = 9600}              // VELOCIDAD DE COMUNICACION SERIE
+//  {$SET BAUDIOS = 9600}     // VELOCIDAD DE COMUNICACION SERIE
 //  
-//  Cualquier velocidad es válida siempre que la combinación velocidad de
-//  trabajo del microcontrolador (fijaca con {$FREQUENCY XXMhz} y los baudios
+//  Cualquier velocidad es válida, siempre que la combinación velocidad de
+//  trabajo del microcontrolador (fijaca con {$FREQUENCY XXMhz}) y los baudios
 //  no den lugar a un número mayor de 255 (un byte) en los cálculos de ciclos 
-//  de espera que realiza la librería, en cuyo caso lo advierte con un mensaje
+//  de espera que realiza la librería, en cuyo caso, lo advierte con un mensaje
 //  de error durante el tipo de compilación para se disminuya la velocidad de
 //  reloj del microcontrolador o se eleve la velocidad de la comunicación.
 //  
@@ -45,10 +48,10 @@ unit UARTSoftLib;
 
 interface
 
-//{$SET DEBUG_LIBRARY = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
-{$SET DEBUG_LIBRARY = 'OFF'}    // Para usar la librería SIEMPRE en OFF.
+//{$SET DEBUG_LIBRARY_UARDSOFT = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
+{$SET DEBUG_LIBRARY_UARDSOFT = 'OFF'}    // Para usar la librería, SIEMPRE en OFF.
 
-{$IF DEBUG_LIBRARY = 'ON'}
+{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
   {$PROCESSOR PIC16F84A}
   {$FREQUENCY 12MHz}
   {$SET BAUDIOS = 9600}              // VELOCIDAD DE COMUNICACION SERIE
@@ -85,7 +88,7 @@ interface
   {$ERROR 'Debe seleccionar un modelo de Microcontralador al inicio de su programa mediante la directiva $PROCESSOR.}  
 {$ENDIF}
 
-{$IF DEBUG_LIBRARY = 'ON'}
+{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
   {$MSGBOX "TIME_MEDIOBITDELAY = " + TIME_MEDIOBITDELAY + "\nCICLOS_DELAY = " + CICLOS_DELAY + "\nCICLOS_DELAY_LOOP = " + CICLOS_DELAY_LOOP}
   uses {$PIC_MODEL};  // Parece que a partir de la versión 0.7.7 ya no es necesario volver a incluir la librería, e incluso produce un error. ¿?
 {$ENDIF}
@@ -122,12 +125,12 @@ begin
 {$SET CONTADOR_CICLOS_DELAY = 8 + (CICLOS_DELAY_LOOP-1)*3}
   ASM   
     movlw      CICLOS_DELAY_1
-    movwf	     d1
+    movwf      d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
   END
-{$IF DEBUG_LIBRARY = 'ON'}
+{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
   {$MSGBOX "CONTADOR_CICLOS_DELAY = " + CONTADOR_CICLOS_DELAY}
 {$ENDIF}
 // Si es necesario, ajusta añadiendo 2 ciclos.
@@ -154,7 +157,7 @@ begin
   {$SET CONTADOR_CICLOS_DELAY = CONTADOR_CICLOS_DELAY + 1}
   //{$MSGBOX "CONTADOR_CICLOS_DELAY + 1 = " + CONTADOR_CICLOS_DELAY}
 {$ENDIF}
-{$IF DEBUG_LIBRARY = 'ON'}
+{$IF DEBUG_LIBRARY_UARDSOFT = 'ON'}
   {$MSGBOX "CICLOS_DELAY = " + CICLOS_DELAY + "\nCONTADOR_CICLOS_DELAY = " + CONTADOR_CICLOS_DELAY} 
 {$ENDIF}
 end;
@@ -178,7 +181,7 @@ begin
     call       MedioBitDelay ; 4 ciclos +
     goto       $+1           ; 2 ciclos = 6 ciclos.
     movlw      CICLOS_DELAY_1
-    movwf	     d1
+    movwf      d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
@@ -228,8 +231,8 @@ begin
 end;
 
 // -----------------------------------------------------------------
-// Procedure UARTSOFT_SENTCHAR
-// Envia un caracter enviado por el puerto serie (UART).
+// Procedure UARTSOFT_SENDCHAR
+// Envia un caracter por el puerto serie (UART).
 // -----------------------------------------------------------------
 procedure UARTSoft_SendChar(register dato : char);
 var
