@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <language Val="es - Español"/>
+  <StateStatusbar Val="0"/>
+  <chkLoadLast Val="True"/>
+  <SplitterCol Val="536870912"/>
+  <MessPanPan Val="536870912"/>
+  <VerPanMensaj Val="True"/>
+  <VerStatusbar Val="True"/>
+  <VerBarHerram Val="True"/>
+  <ViewSynTree Val="True"/>
+  <SynTreeWidth Val="164"/>
+  <viewMode Val="2"/>
+  <MessPanBack Val="-2147483643"/>
+  <MessPanText Val="536870912"/>
+  <MessPanErr Val="255"/>
+  <MessPanSel Val="-2147483633"/>
+  <CodExplBack Val="-2147483643"/>
+  <CodExplText Val="536870912"/>
+  <grpFiltypes Val="0"/>
+  <TamLet Val="11"/>
+  <TipLet Val="DejaVu Sans Mono"/>
+  <VerBarDesV Val="True"/>
+  <VerBarDesH Val="False"/>
+  <TabEdiState Val="0"/>
+  <AutSynChk Val="True"/>
+  <Edit>
+    <cTxtNor Val="15132390"/>
+    <cFonEdi Val="0"/>
+    <cLinAct Val="8388608"/>
+    <Autoindent Val="True"/>
+    <MarLinAct Val="True"/>
+    <ResPalCur Val="True"/>
+    <ResPalCFon Val="15780518"/>
+    <ResPalCTxt Val="0"/>
+    <ResPalCBor Val="15780518"/>
+    <ResPalFWord Val="True"/>
+    <VerPanVer Val="True"/>
+    <VerNumLin Val="True"/>
+    <VerMarPle Val="True"/>
+    <cFonPan Val="14671839"/>
+    <cTxtPan Val="0"/>
+    <recient Val="O:\GitHub\PicPas-Library\UARTSoft\ejemplo\UARTSoft_DEMO.pas
+O:\PicPas-0.7.7\units\UARTSoftLib.pas
+O:\GitHub\PicPas-Library\LCD\LCDLib.pas
+O:\GitHub\PicPas-Library\LCD\ejemplo\LCDLib_DEMO.pas
+O:\PicPas-0.7.7\units\DECtoBCD.pas
+"/>
+  </Edit>
+  <IncHeadMpu Val="True"/>
+  <IncDecVar Val="True"/>
+  <VarDecType Val="1"/>
+  <IncAddress Val="True"/>
+  <IncComment Val="True"/>
+  <IncComment2 Val="False"/>
+  <ExcUnused Val="True"/>
+  <IncVarName Val="True"/>
+  <ShowErMsg Val="True"/>
+  <OptimLev Val="1"/>
+  <OptBnkAftIF Val="True"/>
+  <OptBnkBefPro Val="True"/>
+  <OptBnkAftPro Val="True"/>
+  <ExternTool>
+    <extern_tools Val="Editor	                        	notepad	$(hexFile)	F	F					
+"/>
+  </ExternTool>
+</CONFIG>
+<!-->
+f:O:\PicPas-0.7.7\syntax\PicPas_AsmPic.xml
+Directive	16711935	0	F	F	F				
+Label	28672	0	F	F	F				
+Keyword	65280	0	V	F	F				
+Comment	8421504	0	F	F	F				
+f:O:\PicPas-0.7.7\syntax\PicPas_PIC16.xml
+Keyword	15901696	0	V	F	F				
+Boolean	65535	0	F	F	F				
+Comment	9276813	0	F	F	F				
+Number	16711935	0	F	F	F				
+String	65280	0	F	F	F				
+Directive	16199422	0	F	F	F				
+Asm	6340704	0	F	V	F				
+Types	65535	0	F	F	F				
+Symbol	32768	0	F	F	F				
+
+<-->
