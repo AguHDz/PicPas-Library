@@ -125,7 +125,7 @@ begin
 {$SET CONTADOR_CICLOS_DELAY = 8 + (CICLOS_DELAY_LOOP-1)*3}
   ASM   
     movlw      CICLOS_DELAY_1
-    movwf	     d1
+    movwf      d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
@@ -168,7 +168,7 @@ end;
 // -----------------------------------------------------------------
 procedure BitDelay;
 const
-   // Resta los 6 ciclos para compensar el tiempo de la llamada a MedioBitDelay y su retorno.
+   // Resta 6 ciclos para compensar el tiempo de la llamada a MedioBitDelay y su retorno.
    CICLOS_DELAY_1 = {$CICLOS_DELAY_LOOP} - 2;
    // Se puede poner tambien CICLOS_DELAY_1 = {$CICLOS_DELAY_LOOP} * 2 pero es más facil que
    // el resultado sea un númeor mayor de 255 y por lo tanto no se pueda utilizar esa
@@ -179,9 +179,9 @@ begin
 {$SET CONTADOR_CICLOS_DELAY = 8 + (CICLOS_DELAY_LOOP-1)*3}
   ASM 
     call       MedioBitDelay ; 4 ciclos +
-    goto       $+1           ; 2 ciclos = 6 ciclos.
+    goto       $+1           ; 2 ciclos = 6 ciclos (que son los eliminados del loop delay)
     movlw      CICLOS_DELAY_1
-    movwf	     d1
+    movwf      d1
   Delay_0:               
     decfsz     d1, f
     goto       Delay_0
@@ -191,21 +191,18 @@ begin
   ASM           
     goto $+1
   END
-  {$SET CONTADOR_CICLOS_DELAY = CONTADOR_CICLOS_DELAY + 2}
 {$ENDIF}
 // Si fuera necesario, ajusta añadiendo otros 2 ciclos.
 {$IF (CICLOS_DELAY - CONTADOR_CICLOS_DELAY) >= 2}
   ASM           
     goto $+1    ; Por si se diera la combinación.
   END
-  {$SET CONTADOR_CICLOS_DELAY = CONTADOR_CICLOS_DELAY + 2}
 {$ENDIF}
 // Si es necesario, ajusta añadiendo 1 ciclo. (con redondeo de diferencia para minimizar error)
 {$IF (CICLOS_DELAY - CONTADOR_CICLOS_DELAY) > (1/2)}
   ASM
     nop
   END
-  {$SET CONTADOR_CICLOS_DELAY = CONTADOR_CICLOS_DELAY + 1}
 {$ENDIF}
 end;
 
