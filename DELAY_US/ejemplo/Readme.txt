@@ -1,4 +1,7 @@
-﻿//  
+﻿EJEMPLO DE USO DE LA LIBRERIA DELAY_US_LIB
+==================================
+
+//  
 //  (C) AguHDz 30-SEP-2017
 //  Ultima Actualizacion: 01-OCT-2017
 //  
