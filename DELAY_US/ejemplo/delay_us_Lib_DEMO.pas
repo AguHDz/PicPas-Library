@@ -10,7 +10,7 @@
 //  ==============================================
 //  PicPas incluye la función de sistema delay_ms() para pausar el 
 //  programa durante microsegundos. Sin embargo, hay ocasiones
-//  en se requieren pausar de microsegundos, especialmente cuando
+//  en se requieren pausas de microsegundos, especialmente cuando
 //  se programan protocolos de comunicación con hardware exterior.
 //  Esta librería automatiza la programación de pausas menores de
 //  un milisegundo, para cualquier velocidad de reloj, utizando funciones
@@ -25,7 +25,7 @@
 uses {$PIC_MODEL}, delay_us_Lib;
 
 procedure delay_355us_PRECISO;
-// Mínimo Error de 4 ciclos máquina de llamada y retorno de funcion.
+// Mínimo Error de 4 ciclos máquina por llamada y retorno de funcion.
 begin
   delay_100us;
   delay_100us;
@@ -40,17 +40,17 @@ begin
   {$DELAY_001_US}
   {$DELAY_001_US}
   {$DELAY_001_US}  // Dependiendo de la velocidad de reloj, se podría eliminar esta
-                   // última pausa de 1us para compensar los 4 ciclos de llamada a
-                   // este procedimiento y aumentar la exactitud. Pero en la práctica
-                   // normalmente este mínimo error no tiene la más mínima transcendencia.
+                   // última pausa de 1 us para compensar los 4 ciclos de llamada a
+                   // este procedimiento y aumentar la exactitud. Pero en la práctica,
+                   // normalmente este mínimo error no tiene ninguna transcendencia.
 end;
 
 procedure delay_355_MUY_APROXIMADO;
-// Pequeño Error de llamada a función y ciclos de los bucles de las funciones delay_x
+// Pequeño Error por llamada a función y ciclos de los bucles de las funciones delay_x
 begin
   delay_x100us(3);
   delay_x10us(5);
-  // Para disminuir el pequeño error, no se suman lo 5 ms restantes.
+  // Para disminuir el pequeño error, no se suman lo 5 us restantes.
   // O se pueden añadir MACROS DELAY_001_US de manera experimental
   // en función de la velocidad de reloj del microcontrolador.
 end;
