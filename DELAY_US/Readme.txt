@@ -10,7 +10,7 @@
 //  ==============================================
 //  PicPas incluye la función de sistema delay_ms() para pausar el 
 //  programa durante microsegundos. Sin embargo, hay ocasiones
-//  en se requieren pausar de microsegundos, especialmente cuando
+//  en se requieren pausas de microsegundos, especialmente cuando
 //  se programan protocolos de comunicación con hardware exterior.
 //  Esta librería automatiza la programación de pausas menores de
 //  un milisegundo, para cualquier velocidad de reloj, utizando funciones

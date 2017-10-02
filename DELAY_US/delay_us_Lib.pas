@@ -10,7 +10,7 @@
 //  ==============================================
 //  PicPas incluye la función de sistema delay_ms() para pausar el 
 //  programa durante microsegundos. Sin embargo, hay ocasiones
-//  en se requieren pausar de microsegundos, especialmente cuando
+//  en se requieren pausas de microsegundos, especialmente cuando
 //  se programan protocolos de comunicación con hardware exterior.
 //  Esta librería automatiza la programación de pausas menores de
 //  un milisegundo, para cualquier velocidad de reloj, utizando funciones
@@ -36,13 +36,14 @@ interface
 
 {$SET CICLOS_001_US = ROUND(1/TIME_US_CICLO_MAQUINA)}
 {$SET CICLOS_010_US = ROUND(10/TIME_US_CICLO_MAQUINA)}
-{$SET CICLOS_010F_US = CICLOS_010_US-4}                 // Se decuentas los 4 ciclos de llamada a función.
+{$SET CICLOS_010F_US = CICLOS_010_US-4}                 // Se descuentas los 4 ciclos de llamada a función.
 {$SET CICLOS_100_US = ROUND(100/TIME_US_CICLO_MAQUINA)}
-{$SET CICLOS_100F_US = CICLOS_100_US-4}                 // Se decuentas los 4 ciclos de llamada a función.
+{$SET CICLOS_100F_US = CICLOS_100_US-4}                 // Se descuentas los 4 ciclos de llamada a función.
 
-{$SET NUEVA_LINEA = "\n\r"}
+{$SET NUEVA_LINEA = "\n"}
 {$SET ASM = NUEVA_LINEA + "ASM" + NUEVA_LINEA}
-{$SET END = "END" + NUEVA_LINEA + "0;" + NUEVA_LINEA}
+{$SET END = "END" + NUEVA_LINEA + "0;" + NUEVA_LINEA} // BUG versiones previas a 0.7.8 es necesario el 0;
+//{$SET END = "END" + NUEVA_LINEA}  // BUG corregido a partir de la versión 0.7.8
 {$SET DELAY_001_CICLOS = ASM + "NOP" + NUEVA_LINEA + END}
 {$SET DELAY_002_CICLOS = ASM + "GOTO $+1" + NUEVA_LINEA + END}
 
