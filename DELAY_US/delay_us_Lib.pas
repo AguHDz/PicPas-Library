@@ -42,8 +42,7 @@ interface
 
 {$SET NUEVA_LINEA = "\n"}
 {$SET ASM = NUEVA_LINEA + "ASM" + NUEVA_LINEA}
-{$SET END = "END" + NUEVA_LINEA + "0;" + NUEVA_LINEA} // BUG versiones previas a 0.7.8 es necesario el 0;
-//{$SET END = "END" + NUEVA_LINEA}  // BUG corregido a partir de la versión 0.7.8
+{$SET END = "END" + NUEVA_LINEA}
 {$SET DELAY_001_CICLOS = ASM + "NOP" + NUEVA_LINEA + END}
 {$SET DELAY_002_CICLOS = ASM + "GOTO $+1" + NUEVA_LINEA + END}
 
