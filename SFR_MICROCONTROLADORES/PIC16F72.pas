@@ -3,7 +3,7 @@
 *  SFR del microcontrolador PIC 16F84A
 *
 *  (C) AguHDz 05-JUL-2017
-*  Ultima Actualizacion: 10-JUL-2017
+*  Ultima Actualizacion: 28-OCT-2017
 }
 
 {$PROCESSOR PIC16F72}
@@ -184,7 +184,7 @@ var
   PMADRL            : byte absolute $010D;
   PMDATH            : byte absolute $010E;
   PMADRH            : byte absolute $010F;
-  PMCON1            : byte absolute $018c;
+  PMCON1            : byte absolute $018C;
   PMCON1_RD         : bit absolute PMCON1.0;
    
 implementation
