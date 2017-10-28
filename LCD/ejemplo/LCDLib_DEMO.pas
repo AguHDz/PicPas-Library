@@ -1,14 +1,14 @@
-{
-*  (C) AguHDz 06-JUL-2017
-*  Ultima Actualizacion: 10-SEP-2017
-*  Prueba para compilador PicPas v.0.7.6
-* 
-*  Demo de libreria para Manejo de displays LCD
-*  ================================================================
-*  Imprime de manera repatitiva la demostracion en cualquier LCD
-*  compatible con el estandar HITACHI HD44780.
-}
-// ****************************************************************
+// ****************************************************************************
+//  (C) AguHDz 06-JUL-2017
+//  Ultima Actualizacion: 10-SEP-2017
+//  Prueba para compilador PicPas v.0.7.6
+// 
+//  Demo de libreria para uso de displays LCD
+//  =========================================
+//  Imprime de manera repatitiva la demostración en cualquier LCD compatible
+//  con el estándar HITACHI HD44780.
+//
+// ****************************************************************************
 
 { --- DEFINICION DE MICROCONTROLADOR --- }
 {$PROCESSOR PIC16F84A}
@@ -42,7 +42,7 @@
 {$ENDIF}
 // ****************************************************************
 { --- PARAMETROS DE CONFIGURACION DE LIBRERIA LCD --- }
-{$DEFINE LCD_BUS_DATA_BITS = 8}  // Bits de datos usado por display (8 o 4)
+{$DEFINE LCD_BUS_DATA_BITS = 4}  // Bits de datos usado por display (8 o 4)
 // < MODO BUS DE DATOS 4 BITS >
 {$IF LCD_BUS_DATA_BITS = 4}         // Si Modo bus de datos 4 BITS.
   {$DEFINE LCD_PIN_DATA_4 = PORTB.4}  // BIT D0 BUS de datos 4 bits.

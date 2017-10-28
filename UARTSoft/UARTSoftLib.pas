@@ -48,8 +48,8 @@ unit UARTSoftLib;
 
 interface
 
-//{$SET DEBUG_LIBRARY_UARTSOFT = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
-{$SET DEBUG_LIBRARY_UARTSOFT = 'OFF'}    // Para usar la librería, SIEMPRE en OFF.
+{$SET DEBUG_LIBRARY_UARTSOFT = 'ON'}   // Activa modo pruebas (DEBUG) de librería.
+//{$SET DEBUG_LIBRARY_UARTSOFT = 'OFF'}    // Para usar la librería, SIEMPRE en OFF.
 
 {$IF DEBUG_LIBRARY_UARTSOFT = 'ON'}
   {$PROCESSOR PIC16F84A}

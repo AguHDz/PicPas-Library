@@ -1,15 +1,15 @@
 //  
 //  (C) AguHDz 18-JUL-2017
-//  Ultima Actualizacion: 06-SEP-2017
+//  Ultima Actualizacion: 20-SEP-2017
 //  
-//  Compilador PicPas v.0.7.6 (https://github.com/t-edson/PicPas)
+//  Compilador PicPas v.0.7.7 (https://github.com/t-edson/PicPas)
 //  
 //  LIBRERIA DE FUNCIONES DE CONVERSION DE NUMEROS DECIMALES A BCD
+//
+//  Una de sus principales aplicaciones sería mostrar resultados numéricos
+//  en display LED de 7 segmentos como se muestra en el ejemplo de uso de
+//  la librería.
 //  
-
-{$IFNDEF PIC_MODEL}
-  {$ERROR 'Debe seleccionar un modelo de Microcontralador al inicio de su programa mediante la directiva $PROCESSOR.}  
-{$ENDIF}
 
 unit DECtoBCD;
 
@@ -49,18 +49,15 @@ var
   bcd : word;
   aux : word;
 begin
-  aux := 9999;      // PicPas todavÃ­a no implementa la comparaciÃ³n word Var>Const.
-  if(decimal > aux) then
+  if(decimal > 9999) then
     exit($EEEE);    // El valor decimal es mayor que 9999.
   end;              // Indica ERROR en valor decimal de entrada.
   bcd := 0; 
-  aux := 999;
-  while(decimal > aux) do       // Mientras decimal > 999.
+  while(decimal > 999) do       // Mientras decimal > 999.
     bcd     := bcd     + $1000;
     decimal := decimal - 1000; 
   end;
-  aux := 99;
-  while(decimal > aux) do       // Mientras decimal > 99.
+  while(decimal > word(99)) do       // Mientras decimal > 99.
     bcd     := bcd     + word($100);
     decimal := decimal - word(100); 
   end;

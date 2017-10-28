@@ -82,7 +82,7 @@ unit LCDLib;
 
 interface
 
-{$IFNDEF PIC_MODEL}
+{$IF PIC_MODEL='DEFAULT'}
   {$ERROR 'Debe seleccionar un modelo de Microcontralador al inicio de su programa mediante la directiva $PROCESSOR.}  
 {$ENDIF}
 
