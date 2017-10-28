@@ -1,5 +1,4 @@
 // CONFIGURATION WORD PIC16F72
-
 // =======================================
 // BOREN : Brown-out Reset Enable bit.
 // Enable BOREN automatically enable PWRTEN, regardless of the
